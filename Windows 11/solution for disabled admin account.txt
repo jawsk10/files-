@@ -1,0 +1,7 @@
+Shift + restart
+CMD: regedit
+click on HKEY_LOCAL_MACHINE
+Load Hive: C:\Windows\System32\config\SAM
+give key whatever name
+HKEY_LOCAL_MACHINE\"key name"\SAM\Domains\Account\Users\000001F4
+in DWORD called "F" find the value 11 and change to 10
