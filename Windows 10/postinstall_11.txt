@@ -1,0 +1,203 @@
+(every script needs to be ran with NSudo)
+(install APB before disabling services for PhysX)
+run LiveScript LTSC 21H2 on LTSC 21H2
+do not set default apps
+do not connect to internet
+do not disable Reserved Storage and UWP App Support
+11 IoT LTSC: activate using MAS_AIO Online KMS and put ClipUp.exe in the same folder
+phone USB tethering or USB to ethernet adapter for internet connectivity
+apply mouse.reg
+
+powercfg -h off
+powercfg -import C:\Users\Administrator\Desktop\Hyote.pow, keep it on the desktop, delete other plans
+unhide cpu disable idle: 
+powercfg -attributes SUB_PROCESSOR 5d76a2ca-e8c0-402f-a133-2158492d58ad -ATTRIB_HIDE
+
+run regtweaks11.bat with NSudo Trusted Installer
+run tweaks11.bat with NSudo System
+apply ets-disable.reg in C:\ with NSudo System
+
+set time manually, uncheck settings
+misc commands: (not for 1803)
+NSudo explorer.exe - Local Disk C: - properties - disable indexing
+Disable sppsvc in Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\sppsvc - Start 4 (restart with Start 2 if activation in needed, disable afterwards)
+
+Configure the following by typing sysdm.cpl in Win+R:
+Advanced -> Performance -> Settings - configure Adjust for best performance. 
+Disable the paging file
+Disable and delete system restore points (check again after restarting, gets re-enabled)
+
+Immersive control panel: disable notifications and disable permissions in privacy, uncheck everything like notify with usb issues
+disable audio enhancements
+disable mouse pointer theme, disable scroll inactive windows, disable hide pointer while typing
+uncheck everything in ease of access, mouse options, uncheck prevent windows from being arranged
+Install DirectX and C++ AIO
+Use AppxPackagesManager to remove unneeded apps
+Autoruns: disable FontCache, Intel GPIO, delete Adobe Type Manager, rdpclip
+
+AMD gpu driver: Radeon Software Slimmer: only leave AMD Display Driver, AMD Settings (AMD Settings can be exluded when installed as driver only)
+run KILLAMD.BAT with NSudo
+
+install XL2546 driver
+
+network settings (ncpa.cpl)  (on Windows 7 keep ipv4, ipv6 checked, ipv4 auto)
+disable all items except Internet Protocol Version 4 (TCP/IPv4)
+leave auto settings while using USB to ethernet adapter, only disable WINS
+set static ip address: double click on IPv4, ip address 192.168.0.2
+default gateway 192.168.0.1
+preferred dns server 192.168.0.1
+alternate dns server 1.1.1.1
+Disable NetBIOS over TCP/IP for all network adapters in Internet Protocol Version 4 (TCP/IPv4) -> Properties -> General -> Advanced -> WINS to prevent unnecessary system listening
+
+stop appxsvc, tablet service, plugplay, eventlog, sppsvc, wuauserv, Windows Push Notifications (don't disable PlugPlay on w7)
+
+don't disable yellow devices in device manager
+View -> Devices by type
+In the Disk drives category, uncheck write caching the Properties -> Policies section
+disable power saving on network device
+disable unnecessary devices (System Management BIOS, PCI Express Root Ports, ISA Bridge, PCI standard RAM Controller, generic software components, unused usb devices)
+only leave the Game part of HyperX headsets, disable everything else
+uninstall unused devices under every "USB Input Device" before disabling the branches
+
+disable power saving for all devices
+PowerShell:
+Get-CimInstance -ClassName MSPower_DeviceEnable -Namespace root/WMI |
+Set-CimInstance -Property @{Enable = $false}
+
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\kbdclass\Parameters" /v "ConnectMultiplePorts" /t REG_DWORD /d "0" /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\kbdclass\Parameters" /v "MaximumPortsServiced" /t REG_DWORD /d "0" /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\kbdclass\Parameters" /v "SendOutputToAllPorts" /t REG_DWORD /d "0" /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\kbdclass\Parameters" /v "WppRecorder_UseTimeStamp" /t REG_DWORD /d "0" /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\kbdhid\Parameters" /v "WorkNicely" /t REG_DWORD /d "1" /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\kbdhid\Parameters" /v "WppRecorder_UseTimeStamp" /t REG_DWORD /d "0" /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\mouclass\Parameters" /v "WppRecorder_UseTimeStamp" /t REG_DWORD /d "0" /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\mouhid\Parameters" /v "UseOnlyMice" /t REG_DWORD /d "1" /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\mouhid\Parameters" /v "WorkNicely" /t REG_DWORD /d "1" /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\mouhid\Parameters" /v "WppRecorder_UseTimeStamp" /t REG_DWORD /d "0" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "DesktopLivePreviewHoverTime" /t REG_DWORD /d "1" /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoLowDiskSpaceChecks" /t REG_DWORD /d "1" /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "LinkResolveIgnoreLinkInfo" /t REG_DWORD /d "1" /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoResolveSearch" /t REG_DWORD /d "1" /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoResolveTrack" /t REG_DWORD /d "1" /f
+(test)
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Power" /v "DisableDynamicProcessorBoost" /t REG_DWORD /d "1" /f
+
+CRU delete everything, create Detailed Resolution, Exact Reduced
+
+RWEverything manually: PCI Devices: 32 bit, XHCI USB Controller, find BAR1, double click
+16 bit in the next menu, search in Address, copy paste after the 0x part if there is only BAR 1, add the second one then the first one if there is a BAR1 and BAR2 (leave 000000 out if it starts with that), then delete 4 characters and type 2024 at the end
+click on 00C8 and double click on every 1 to make them 0
+
+(use MSI Afterburner if MorePowerTool and MoreClockTool can't be installed)
+dump GPU BIOS with GPU-Z and do MorePowerTool settings: Feature Control: uncheck from MEM_MVDD_SCALING to MM_DPM_PG (leave those checked), uncheck DF_CSTATES, Frequency: 2000 GFX, 1100 Soc, 1800 Fclk, Fan Zero RPM disable, WriteSPPT when done and reboot
+MoreClockTool (load MoreClockTool.xml) RX 6900 XT min/max frequency 2000/2589 ; memory 2150 ; voltage 1095 ; gpu power 115% ; memory fast timing ; 100% fan speed above 80 degrees, disable zero rpm, vsync always off
+Interrupt Affinity Policy Tool:
+USB XHCI - CPU 3
+6900 XT and PCI-to-PCI Bridges (3 of them connected to GPU) - CPU 4
+SATA - CPU 8
+
+
+HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000
+D3DVendorName and D3DVendorNameWow
+atiumd64.dll      atiumdag.dll
+atiumd64.dll      atiumdag.dll
+atidxx64.dll      atidxx32.dll
+atidxx64.dll      atidxx32.dll
+use DeviceCleanup to remove hidden devices
+run the PowerShell script down below after disconnecting and reconnecting devices
+
+run everything in tweaks.zip
+
+(gets reset to 4 after restarting graphics driver in CRU) check display scaling in Computer\HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\GraphicsDrivers\Configuration\BNQ7F58LAL04138SL0_2A_07E4_2E^E866752506E97B4D61FBA5E9F9717023\00\00
+
+disable task manager:
+Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies
+new key called System, new 32-bit dword DisableTaskMgr 1
+
+NSudo System privileges: colorcpl, delete ICC color profiles
+
+uncheck align icons to grid
+
+apply SCEWIN settings with nvram.txt
+
+timer resolution:
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "GlobalTimerResolutionRequests" /t Reg_DWORD /d "1" /f
+put SetTimerResolution.exe in C:\
+create shortcut and move to C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+target: C:\SetTimerResolution.exe --resolution 5033 --no-console
+
+run Add_Take_Ownership_to_context_menu, 
+take ownership of C:\Windows\System32\DriverStore\FileRepository\u0396906.inf_amd64_85a7dd2e12f92c85\B396804
+replace atiumdag.dll with the one in the _opt folder
+
+place startup.txt on desktop
+
+remove 7-zip when not needed, delete registry keys in Computer\HKEY_CURRENT_USER\SOFTWARE and Computer\HKEY_LOCAL_MACHINE\SOFTWARE
+
+msconfig disable:
+bluetooth support
+bluetooth audio
+crypt
+network list, setup, location
+secondary logon
+windows connection manager
+wifi direct
+wlan auto
+
+gpedit.msc:
+Computer Configuration, Administrative Templates, System:
+Display highly detailed status messages - Disabled
+
+Computer Configuration, Administrative Templates, Windows Components, Event Logging:
+Enable Protected Event Logging - Disabled
+
+Computer Configuration, Administrative Templates, Windows Components, Event Viewer:
+Events.asp program - Disabled
+
+User Config, Admin Templates, System, Scripts:
+Run legacy logon scripts hidden - Disabled
+Run logon scripts synchronously - Disabled
+Run Windows PowerShell scripts first at user logon, logoff - Disabled
+
+User Config, Admin Templates, System:
+Century interpretation for Year 2000 - Disabled
+Prevent access to cmd, regedit, revert when needed
+
+flush cache: Rundll32 apphelp.dll,ShimFlushCache
+
+Before startup: remove glass side panel
+
+After startup:
+
+RWEverything manually: PCI Devices: 32 bit, XHCI USB Controller, find BAR1, double click
+16 bit in the next menu, search in Address, copy paste after the 0x part if there is only BAR 1, add the second one then the first one if there is a BAR1 and BAR2 (leave 000000 out if it starts with that), then delete 4 characters and type 2024 at the end
+click on 00C8 and double click on every 1 to make them 0
+
+gpedit: reenable cmd and regedit, disable afterwards
+
+(info)monitor service menu: turn off monitor, hold button 3 and 4, turn the monitor on, the menu is accessible by pressing button 5
+recheck OD GAIN A2 every time you open a game or the monitor restarts
+
+delete monitor EDID, restart with Win+CTRL+Shift+B (startup.txt) Computer\HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Enum\DISPLAY\BNQ7F58\7&73bb760&0&UID264\Device Parameters
+
+(startup.txt) run PowerShell: Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }
+
+(test)uncheck show desktop icons after launching games
+kill sihost.exe in Process Explorer, explorer.exe one of two WmiPrvSvc, WMIADAP, gpsvc, LSM before running games
+
+(test) disable 2x fontdrvhost, only leave these 5 svchosts running: BrokerInfrastructure, RpcEptMapper, AudioEndpointBuilder, Audiosrv, CoreMessagingRegistrar
+
+explorer.exe restart with file, new task - run
+
+SCEWIN: XHCI Legacy Support can be disabled but no peripherals will be detected on boot, reenable it to get into BIOS
+delete secure boot keys in bios
+PUT MONITOR CABLES AND EVERY CABLE FAR APART
+unused RAM channels disabled in SCEWIN and BIOS settings
+overtightening cpu cooler screws can cause RAM not to work
+XL2546: clear profile in factory menu, use FPS 1 ; DyAc off, Black Eq 7, Color 20, Instant Mode On, Bright 100, Cont 50, Sharpness 7, Gamma 2, Color Temp RGB, AMA Premium, DDC/CI Off,
+Headphone Mute off, Custom Key 2 - display, Custom Key - 3 input
+factory menu: BURNIN OFF, OD GAIN 4C or A2, ADDR 74, keep resetting the timer
+service menu: Intensity 15, Area 6
+6900 XT DisplayPort 1, port on the left, farthest from HDMI port
+only leave USB 1,9,13 enabled (back port next to ethernet (keyboard), back port called BIOS (mouse), back port next to the one under BIOS (headset))
+enable USB 7 for the front right USB 3 port
