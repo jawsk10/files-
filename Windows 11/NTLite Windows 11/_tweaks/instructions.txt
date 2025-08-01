@@ -1,0 +1,3 @@
+regtweaks11.reg - NSudo Trusted Installer privileges
+tweaks11.bat - NSudo System privileges
+run ets-disable.reg in C:\
