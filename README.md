@@ -1,1 +1,1 @@
-# Most of the tweaks found here are meant for Intel processors only. Some people tried applying tweaks.bat and tweaks11.bat on Ryzen and it resulted in Windows breaking for them.
+# Most of the tweaks found here are meant for Intel processors only. Previous versions of .bat files are now replaced with tweaksAIO.bat which can be ran on any version of Windows.
