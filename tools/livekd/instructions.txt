@@ -1,2 +1,0 @@
-C:\tools\livekd
-run apply-qeti.cmd as admin
