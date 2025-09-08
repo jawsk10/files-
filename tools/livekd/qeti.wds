@@ -1,6 +1,0 @@
-.symfix; .reload;
-dd nt!KeQuantumEndTimerIncrement L1;
-ed nt!KeQuantumEndTimerIncrement 0xFFFFFFFF;
-.echo === after ===;
-dd nt!KeQuantumEndTimerIncrement L1;
-g
