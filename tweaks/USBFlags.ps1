@@ -1,1 +1,0 @@
-Get-ChildItem HKLM:\SYSTEM\ControlSet001\Control\usbflags|? { $_.PSChildName.Length -eq 12 } | % {foreach ($v in "DisableOnSoftRemove","DisableRecoveryFromPowerDrain","DisableLPM") {Set-ItemProperty -Path $_.PSPath -Name $v -Value 1 -Type DWord}}
