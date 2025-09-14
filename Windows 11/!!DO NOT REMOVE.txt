@@ -1,3 +1,4 @@
 Spectre and Meltdown in NTLite and Windows
 Reserved Storage
 UWP app support
+24H2: TextInputManagementService
