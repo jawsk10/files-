@@ -1,0 +1,26 @@
+Download and install Windbg, LiveKD, move livekd, livekd64.exe to WinDbg folder.
+
+First time:
+CMD:
+cd C:\path\to\file
+symchk -v C:\Windows\System32\ntoskrnl.exe /s srv*C:\Symbols*https://msdl.microsoft.com/download/symbols
+
+Usage:
+cd C:\path\to\file
+livekd64.exe -w
+
+WinDbg:
+.scriptload C:\Users\user\Desktop\patch.js
+dx @$scriptContents.patchBatch()
+ed nt!KeQuantumEndTimerIncrement FFFFFFFF
+eb nt!KiIdleLoop 90
+ed nt!KiQuantumEnd 0
+ed nt!KeFeatureBits 0
+eb nt!KeDelayExecutionThread C3
+ed nt!KiCyclesPerClockQuantum 1
+ed nt!PerfGlobalGroupMask 0
+ed nt!ExpTimerResolutionCount 0
+ed nt!KiLockQuantumTarget 0
+ed nt!KiDirectQuantumTarget 0
+ed nt!PspVariableQuantums 0
+ed nt!PspComputeQuantum 0
