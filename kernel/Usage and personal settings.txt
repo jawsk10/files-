@@ -10,8 +10,9 @@ cd C:\path\to\file
 livekd64.exe -w
 
 WinDbg:
-.scriptload C:\Users\user\Desktop\patch.js
+.scriptload C:\Users\<username>\Desktop\patch.js
 dx @$scriptContents.patchBatch()
+.scriptload C:\Users\<username>\Desktop\qpc_patch.js
 ed nt!KeQuantumEndTimerIncrement FFFFFFFF
 eb nt!KiIdleLoop 90
 ed nt!KiQuantumEnd 0
@@ -24,3 +25,11 @@ ed nt!KiLockQuantumTarget 0
 ed nt!KiDirectQuantumTarget 0
 ed nt!PspVariableQuantums 0
 ed nt!PspComputeQuantum 0
+ed nt!KeTimerCheckFlags 0
+ed nt!KiIrqlFlags 0
+ed nt!KeTimerCheckFlags 0
+ed nt!KiIrqlFlags 0
+ed nt!PopCoalescingCallback 0xC3
+ed nt!PpmPerfAction 0
+ed nt!ExpTimerResolutionListHead 0
+ed nt!HvlEnlightenments 0
