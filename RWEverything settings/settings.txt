@@ -1,0 +1,85 @@
+# Disable PCIe power saving features (ASPM) on your device for lower latency. Replace BAR1 with your own BAR1 from RWEverything and replace the four digits at the end.
+W16 0xB0000004+0x2020 0x0  → W16 0xB0002024 0x0 (this is just an example)
+
+W16 BAR1+2020 0x0
+W16 BAR1+2040 0x0
+W16 BAR1+2060 0x0
+W16 BAR1+2080 0x0
+W16 BAR1+20A0 0x0
+W16 BAR1+20C0 0x0
+W16 BAR1+20E0 0x0
+W16 BAR1+2100 0x0
+
+# Disable CPU power management features (SpeedStep, thermal throttling, prefetchers)
+WRMSR 0x1a0 0x00000000 0x00000000
+
+# Remove CPU package power limits (allows unlimited power draw)
+WRMSR 0x610 0x00000000 0x00FFC000
+
+# Clear additional power limit registers for CPU cores and iGPU
+WRMSR 0x638 0x00000000 0x00000000
+WRMSR 0x640 0x00000000 0x00000000
+WRMSR 0x618 0x00000000 0x00000000
+
+# Disable Spectre/Meltdown security mitigations
+WRMSR 0x48 0x00000000 0x00000000
+WRMSR 0x49 0x00000000 0x00000000
+
+# Disable CPU idle states (C1E)
+WRMSR 0x1FC 0x00000000 0x00000000
+
+# Set turbo multiplier to a specific value. 32 (hex 50) stands for 5 GHz.
+WRMSR 0x1AD 0x00000000 0x32323232
+
+# PCIe MMIO - disable completion timeout  
+W32 0xFED10000 0x0
+
+# Chipset PM registers - disable deep package C-states in PCH  
+W32 0xFED159A0 0x0
+
+# Force max P-state, disable downclocking for GPU
+W32 0xC0100064 0xFFFFFFFF
+
+# Disable GPU power gating
+W32 0xE0003024 0x00000000
+
+# Force maximum memory clock state
+W32 0xE0003004 0xFFFFFFFF
+
+# Disable display clock gating
+W32 0xE0003064 0x00000000
+
+# Disable GPU DFS (dynamic frequency scaling) bypass
+W32 0xE00030C4 0x00000001
+# Display controller - disable variable refresh/underscan
+W32 0xE0006020 0x00000000
+W32 0xE0006024 0x00000000
+
+# Set display FIFO watermarks to maximum (reduce frame buffer stalls)
+W32 0xE0006B00 0xFFFFFFFF
+W32 0xE0006B04 0xFFFFFFFF
+
+# Intel chipset - disable memory refresh throttling
+W32 0xFED159B0 0x0
+W32 0xFED159B4 0x0
+
+# Memory controller opportunistic self-refresh disable
+W32 0xFED15A00 0x0
+
+# Disable memory scrambler (can cause timing variance)
+WRMSR 0x1A2 0x00000000 0x00000000
+
+# GFXOFF disable
+W32 0xE00030DC 0x00000000
+
+# SMU firmware intercept disable
+W32 0xE0016000 0x00000000
+
+# GFX pipeline stall elimination
+W32 0xE00080A0 0x00000000
+
+# Force constant TSC rate (disable turbo scaling of timestamp counter)
+WRMSR 0x19A 0x00000000 0x00000001
+
+# Copy your final settings in one line and separate them with semicolons (;) so they can be applied in one step on every startup.
+Eg. WRMSR 0x610 0x00000000 0x00FFC000; WRMSR 0x638 0x00000000 0x00000000; WRMSR 0x640 0x00000000 0x00000000
