@@ -392,7 +392,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProf
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Window Manager" /v "BackgroundPriority" /t REG_DWORD /d 8 /f >NUL 2>&1
 
 :: Process Scheduling
-REG ADD "HKLM\System\CurrentControlSet\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d "36" /f >NUL 2>&1
+REG ADD "HKLM\System\CurrentControlSet\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d "0" /f >NUL 2>&1
 
 :: Minimizing the number of times the CPU is forced to perform the relatively power-costly operation of entering and exiting idle states
 REG ADD "HKLM\System\CurrentControlSet\Control\Session Manager\Power" /v "CoalescingTimerInterval" /t REG_DWORD /d "0" /f >NUL 2>&1
@@ -478,4 +478,5 @@ BCDEDIT /set useplatformtick No >NUL 2>&1
 BCDEDIT /set uselegacyapicmode No >NUL 2>&1
 BCDEDIT /set sos No >NUL 2>&1
 BCDEDIT /set pae ForceDisable >NUL 2>&1
+
 BCDEDIT /set xsavedisable Yes >NUL 2>&1
