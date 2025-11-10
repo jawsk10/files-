@@ -1,0 +1,1 @@
+# **A1 breaks almost all Windows functionality. Using it on Windows 11 is done by making SystemInformer or ProcessHacker the default task manager and using NSudo to navigate folders and do anything basically. It takes around one minute for the OS to start up while getting various sihost.exe errors which you can ignore.**
