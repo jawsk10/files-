@@ -480,7 +480,9 @@ BCDEDIT /set useplatformtick No >NUL 2>&1
 BCDEDIT /set uselegacyapicmode No >NUL 2>&1
 BCDEDIT /set sos No >NUL 2>&1
 BCDEDIT /set pae ForceDisable >NUL 2>&1
+BCDEDIT /set pciexpress forcedisable >NUL 2>&1
 
 BCDEDIT /set xsavedisable Yes >NUL 2>&1
+
 
 
