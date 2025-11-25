@@ -445,7 +445,8 @@ BCDEDIT /deletevalue useplatformclock >NUL 2>&1
 :: Constantly pool interrupts, dynamic tick was implemented as a power saving feature for laptops
 BCDEDIT /set disabledynamictick yes >NUL 2>&1
 :: Disable Data Execution Prevention Security Feature
-BCDEDIT /set nx AlwaysOff >NUL 2>&1
+BCDEDIT /set {current} nx OptOut >NUL 2>&1
+BCDEDIT /set {current} nx AlwaysOff >NUL 2>&1
 :: Disable Emergency Management Services
 BCDEDIT /set ems No >NUL 2>&1
 BCDEDIT /set bootems No >NUL 2>&1
@@ -483,6 +484,7 @@ BCDEDIT /set pae ForceDisable >NUL 2>&1
 BCDEDIT /set pciexpress forcedisable >NUL 2>&1
 
 BCDEDIT /set xsavedisable Yes >NUL 2>&1
+
 
 
 
