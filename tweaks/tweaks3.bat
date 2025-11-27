@@ -437,9 +437,6 @@ fsutil behavior set disabledeletenotify 0
 fsutil repair set C: 0
 REG ADD "HKLM\System\CurrentControlSet\Control\Session Manager\Executive" /V "AdditionalCriticalWorkerThreads" /T REG_DWORD /d 0 /f
 REG ADD "HKLM\System\CurrentControlSet\Control\Session Manager\Executive" /V "AdditionalDelayedWorkerThreads" /T REG_DWORD /d 0 /f
-REG ADD "HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters" /V "MaxWorkItems" /T REG_DWORD /d 512 /f
-REG ADD "HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters" /V "DisableBandwidthThrottling" /T REG_DWORD /d 1 /f
-REG ADD "HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters" /V "MaxCmds" /T REG_DWORD /d 1 /f
 REG ADD "HKLM\System\CurrentControlSet\Services\LanmanWorkstation\Parameters" /V "MaxThreads" /T REG_DWORD /d 32 /f
 REG ADD "HKLM\System\CurrentControlSet\Control\Session Manager\I/O System" /V "IoEnableSessionZeroAccessCheck" /T REG_DWORD /d 0 /f
 REG ADD "HKLM\System\CurrentControlSet\Control\Session Manager\I/O System" /V "PassiveIntRealTimeWorkerCount" /T REG_DWORD /d 0 /f
@@ -661,3 +658,4 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Input\Settings\ControllerProcessor\CursorSpeed"
 :: Disable Touch Input
 
 REG ADD "HKCU\Software\Microsoft\Wisp\Touch" /v "TouchGate" /t REG_DWORD /d "0" /f >NUL 2>&1
+
