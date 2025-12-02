@@ -1,4 +1,6 @@
-﻿my settings:
+DO NOT DISABLE: ME DID MESSAGE
+
+my settings:
 set every PCIe speed to its current gen
 Fia Programming - Disabled
 Titan Ridge Workaround - Disabled
@@ -60,7 +62,6 @@ USB Overcurrent - Disabled (risky)
 USB Overcurrent Lock - Disabled (risky)
 USB Single Port Control - Disabled
 CPU Replaced Polling Disable - Enabled
-ME DID Message - Disabled
 Cooler Efficiency Customize - Stop Training
 System Agent Bandgap Workaround - Disabled
 Regulate Frequency by above Threshold - Disabled
@@ -1477,4 +1478,5 @@ PEG0 Max Payload size - (The Max Value)
 PEG1 Max Payload size - (The Max Value)
 PEG2 Max Payload size - (The Max Value)
 PEG3 Max Payload size - (The Max Value)
+
 
