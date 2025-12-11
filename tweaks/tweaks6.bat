@@ -266,6 +266,8 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000" /v "StutterMode" /t REG_DWORD /d "0" /f >NUL 2>&1
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000" /v "TVEnableOverscan" /t REG_DWORD /d "0" /f >NUL 2>&1
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Dwm" /v "OverlayTestMode" /t REG_DWORD /d "5" /f >NUL 2>&1
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000\UMD" /v "CatalystAI" /t REG_BINARY /d 30 00 00 00 /f >NUL 2>&1
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000\UMD" /v "CatalystAI_DEF" /t REG_BINARY /d "0" /f >NUL 2>&1
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000\UMD" /v "MLF" /t REG_BINARY /d "3000" /f >NUL 2>&1
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000\UMD" /v "EQAA" /t REG_BINARY /d "3000" /f >NUL 2>&1
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000\UMD" /v "PowerState" /t REG_BINARY /d "3000" /f >NUL 2>&1
@@ -1961,4 +1963,5 @@ ECHO 0.0.0.0 www-googletagmanager.l.google.com>>%windir%\system32\drivers\etc\ho
 ECHO 0.0.0.0 www.google-analytics.com>>%windir%\system32\drivers\etc\hosts
 ECHO 0.0.0.0 www.googletagmanager.com>>%windir%\system32\drivers\etc\hosts
 ECHO 0.0.0.0 www.googletagservices.com>>%windir%\system32\drivers\etc\hosts
+
 ECHO 0.0.0.0 youtube.cleverads.vn>>%windir%\system32\drivers\etc\hosts
