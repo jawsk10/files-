@@ -256,8 +256,9 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" /v "RmFbsrPagedDMA" /t
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" /v "RmGpsPsEnablePerCpuCoreDpc" /t REG_DWORD /d "1" /f >NUL 2>&1
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" /v "UseGpuTimer" /t REG_DWORD /d "1" /f >NUL 2>&1
 	
-:: Force contiguous memory allocation in the DirectX Graphics Kernel (Questionable)
+:: DirectX
 REG ADD "HKLM\System\CurrentControlSet\Control\GraphicsDrivers" /v "DpiMapIommuContiguous" /t REG_DWORD /d "1" /f >NUL 2>&1
+REG ADD "HKLM\System\CurrentControlSet\Control\GraphicsDrivers" /v "MiracastForceDisable" /t REG_DWORD /d "1" /f >NUL 2>&1
 
 :: Force contiguous memory allocation in the NVIDIA driver (Questionable)
 REG ADD "HKLM\System\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000" /v "PreferSystemMemoryContiguous" /t REG_DWORD /d "1" /f >NUL 2>&1
@@ -481,3 +482,4 @@ BCDEDIT /set sos No >NUL 2>&1
 BCDEDIT /set pae ForceDisable >NUL 2>&1
 BCDEDIT /set pciexpress forcedisable >NUL 2>&1
 BCDEDIT /set xsavedisable Yes >NUL 2>&1
+
