@@ -440,10 +440,6 @@ takeown /f >NUL 2>&1 %WinDir%\HelpPane.exe
 icacls %WinDir%\HelpPane.exe /deny Everyone:(X)
 
 ECHO BCD Params...
-:: Disable synthetic timer
-BCDEDIT /deletevalue useplatformclock >NUL 2>&1
-:: Constantly pool interrupts, dynamic tick was implemented as a power saving feature for laptops
-BCDEDIT /set disabledynamictick yes >NUL 2>&1
 :: Disable Data Execution Prevention Security Feature
 BCDEDIT /set {current} nx OptOut >NUL 2>&1
 BCDEDIT /set {current} nx AlwaysOff >NUL 2>&1
@@ -476,18 +472,12 @@ BCDEDIT /set MSI Default >NUL 2>&1
 BCDEDIT /set usephysicaldestination No >NUL 2>&1
 BCDEDIT /set usefirmwarepcisettings No >NUL 2>&1
 BCDEDIT /set tscsyncpolicy Enhanced >NUL 2>&1
-BCDEDIT /set useplatformclock No >NUL 2>&1
-BCDEDIT /set useplatformtick Yes >NUL 2>&1
+BCDEDIT /deletevalue useplatformtick >NUL 2>&1
+BCDEDIT /deletevalue useplatformclock >NUL 2>&1
+BCDEDIT /deletevalue disabledynamictick >NUL 2>&1
+BCDEDIT /set disabledynamictick yes >NUL 2>&1
 BCDEDIT /set uselegacyapicmode No >NUL 2>&1
 BCDEDIT /set sos No >NUL 2>&1
 BCDEDIT /set pae ForceDisable >NUL 2>&1
 BCDEDIT /set pciexpress forcedisable >NUL 2>&1
-
 BCDEDIT /set xsavedisable Yes >NUL 2>&1
-
-
-
-
-
-
-
