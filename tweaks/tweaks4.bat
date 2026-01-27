@@ -90,7 +90,7 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v DpcWat
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v DisableTsx /t REG_DWORD /d 1 /f >NUL 2>&1
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v DynamicDpcProtocol /t REG_DWORD /d 1 /f >NUL 2>&1
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v SerializeTimerExpiration /t REG_DWORD /d 1 /f >NUL 2>&1
-REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v InterruptSteeringDisabled /t REG_DWORD /d 1 /f >NUL 2>&1
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v InterruptSteeringFlags /t REG_DWORD /d 1 /f >NUL 2>&1
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v DpcQueueDepth /t REG_DWORD /d 1 /f >NUL 2>&1
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v MaxDynamicTickDuration /t REG_DWORD /d 1000 /f >NUL 2>&1
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v ForceIdleGracePeriod /t REG_DWORD /d 1 /f >NUL 2>&1
@@ -482,4 +482,5 @@ BCDEDIT /set sos No >NUL 2>&1
 BCDEDIT /set pae ForceDisable >NUL 2>&1
 BCDEDIT /set pciexpress forcedisable >NUL 2>&1
 BCDEDIT /set xsavedisable Yes >NUL 2>&1
+
 
