@@ -1,0 +1,58 @@
+Windows Registry Editor Version 5.00
+
+    ;* no autolog
+    ; https://www.reddit.com/r/Windows10/comments/8lpttt/howto_make_w10_log_less_prune_the_amount_of/
+    ; https://gist.github.com/FadeMind/9500d49948654b50aa870706a8ac9f04
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\AITEventLog]
+    ; Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\AppModel]
+    ;+ Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\AppPlat]
+    ;+ Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\Audio]
+    ; Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\AutoLogger-Diagtrack-Listener]
+    ;* Disables %systemroot%\System32\LogFiles\WMI\Diagtrack-Listener.etl
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\Circular Kernel Context Logger]
+    ; Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\DefenderApiLogger]
+    ;+ Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\DiagLog]
+    ; Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\DefenderAuditLogger]
+    ;+ Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\FamilySafetyAOT]
+    ;+ Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\LwtNetLog]
+    ;+ Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\NtfsLog]
+    ; Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\RadioMgr]
+    ;* Disables %SystemRoot%\System32\LogFiles\WMI\RadioMgr.etl
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\ReadyBoot]
+    ; Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\SQMLogger]
+    ; Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\UBPM]
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\WdiContextLog]
+    ; Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\WiFiSession]
+    ;+ Disables Event Trace Session in Perfmon Data Collector Sets
+    "Start"=dword:00000000
