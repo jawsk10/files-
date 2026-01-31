@@ -1,2 +1,0 @@
-Set-NetOffloadGlobalSetting -ReceiveSegmentCoalescing Enable
-Set-NetOffloadGlobalSetting -PacketCoalescingFilter Disable
