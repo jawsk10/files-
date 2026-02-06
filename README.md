@@ -1,1 +1,1 @@
-# Credits to Proviise for the entire tweaks folder, some changes were made but these are the most sensible and powerful tweaks for the time being.
+# Credits to Proviise for some settings in the tweaks folder.
