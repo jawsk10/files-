@@ -55,6 +55,10 @@ WER_Amputation_Kit\
 
 ### Running the script
 
+### Simply run Remove-WER.bat<br>
+
+or
+
 1. Right-click the **Start** button → **Terminal (Admin)** or **PowerShell (Admin)**
 2. `cd` into the folder containing the script and DLLs:
    ```powershell
