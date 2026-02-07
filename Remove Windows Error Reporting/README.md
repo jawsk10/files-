@@ -1,5 +1,7 @@
 # WER Amputation Kit
 
+## For those who don't want to build the .dll files manually, skip to Step 2.
+
 Complete removal of Windows Error Reporting from Windows 11.
 
 ## Files
