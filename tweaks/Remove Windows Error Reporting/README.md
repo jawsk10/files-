@@ -58,7 +58,7 @@ WER_Amputation_Kit\
 1. Right-click the **Start** button → **Terminal (Admin)** or **PowerShell (Admin)**
 2. `cd` into the folder containing the script and DLLs:
    ```powershell
-   cd "C:\path\to\WER_Amputation_Kit"
+   cd "C:\path\to\Remove Windows Error Reporting"
    ```
 3. Allow the script to run (one-time, current session only):
    ```powershell
