@@ -1,6 +1,14 @@
 DO NOT DISABLE: ME DID MESSAGE
 
-my settings:
+Latency - 0
+Time Unit - 1 ns
+CPU C3 Report - Disabled
+CPU C6 Report - Disabled
+CPU C7 Report - Disabled
+CPU C7 - Disabled
+CPU C8 Report - Disabled
+CPU C9 Report - Disabled
+CPU C10 Report - Disabled
 set every PCIe speed to its current gen
 Fia Programming - Disabled
 Titan Ridge Workaround - Disabled
@@ -69,6 +77,7 @@ Override HW EQ settings - Disabled
 Ch Hash Interleaved Bit - BIT6
 ChipSelect 0 polarity - Active Low (3 entries)
 HEBC value - 0
+
 
 
 
@@ -1478,5 +1487,6 @@ PEG0 Max Payload size - (The Max Value)
 PEG1 Max Payload size - (The Max Value)
 PEG2 Max Payload size - (The Max Value)
 PEG3 Max Payload size - (The Max Value)
+
 
 
