@@ -3063,7 +3063,7 @@
 			</Item>
 			<Item type="19">
 				<Path>powercfg</Path>
-				<Params>-import "C:\beyond.pow" 77777777-7777-7777-7777-777777777777</Params>
+				<Params>-import "C:\Frenzy.pow" 77777777-7777-7777-7777-777777777777</Params>
 				<Index>2</Index>
 			</Item>
 			<Item type="19">
@@ -3088,7 +3088,7 @@
 			</Item>
 			<Item type="19">
 				<Path>del</Path>
-				<Params>C:\beyond.pow</Params>
+				<Params>C:\Frenzy.pow</Params>
 				<Index>7</Index>
 			</Item>
 		</Add>
